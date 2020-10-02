@@ -95,12 +95,22 @@ describe('2.3 存储函数', function(){
 
         it('splice()-数组切片-01', function(done){
             var arr = [1,2,3];
-            var tgt = [1,2,3].splice(0, arr.length);
+            var tgt = arr.splice(0, arr.length);
             assert.strictEqual(tgt[0], 1);
+            assert.strictEqual(tgt[1], 2);
+            assert.strictEqual(tgt[2], 3);
             done();
         });
 
-    });
+        it('splice()-数组切片-02', function(done){
+            var arr = [1,2,3];
+            var tgt = arr.splice(2, 1);
+            assert.strictEqual(arr[0], 1);
+            assert.strictEqual(arr[1], 2);
+            done();
+        });
 
+        // TODO: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+    });
 
 });
