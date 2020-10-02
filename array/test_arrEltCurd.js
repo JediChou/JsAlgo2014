@@ -43,6 +43,27 @@ describe('2.3 存储函数', function(){
             done();
         });
 
+        it('lastIndexOf检测整型数组', function(done){
+            assert.strictEqual([1,2,1].lastIndexOf(2), 1);
+            assert.strictEqual([1,2,2].lastIndexOf(2), 2);
+            done();
+        });
+
+    });
+
+    describe('2.3.2 数组的字符串表示', function(){
+
+        it('string_arry.join()-数组的字符串表示', function(done){
+            var family = ['jedi', 'becky', 'cici'];
+            assert.strictEqual(family.join(), 'jedi,becky,cici');
+            done();
+        });
+
+        it('int_array.join()-数组的字符串表示', function(done){
+            assert.strictEqual([1,2,3].join(), '1,2,3');
+            done();
+        });
+
     });
 
 
