@@ -66,5 +66,18 @@ describe('2.3 存储函数', function(){
 
     });
 
+    describe('2.3.3 由已有数组创建新数组', function(){
+
+        it('concat()-数组连接-01', function(done){
+            var num_first = [1,2,3];
+            var num_second = [4,5,6];
+            num_first = num_first.concat(num_second);
+            assert.strictEqual(num_first.length, 6);
+            done();
+        });
+
+
+    });
+
 
 });
