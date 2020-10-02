@@ -31,7 +31,11 @@ describe('2.3 存储函数', function(){
             // Jedi: indexOf无法用来搜索数组
         });
 
-        
+        it('indexOf未查询到元素', function(done){
+            assert.strictEqual([1,2,3].indexOf(4), -1);
+            assert.strictEqual(['a'].indexOf('x'), -1);
+            done();
+        });
 
     });
 
