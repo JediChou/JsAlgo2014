@@ -76,6 +76,29 @@ describe('2.3 存储函数', function(){
             done();
         });
 
+        it('concat()-数组连接-02', function(done){
+            var arr = ['jedi'].concat(['becky']);
+            assert.strictEqual(arr[0], 'jedi');
+            assert.strictEqual(arr[1], 'becky');
+            done();
+        });
+
+        it('concat()-数组连接-03', function(done){
+            var arr = [0,1,2];
+            arr = arr.concat(arr).concat(arr);
+            assert.strictEqual(arr.length, 9);
+            for (var i=0; i<arr.length; i++) {
+                assert.strictEqual(arr[i], i % 3);
+            }
+            done();
+        });
+
+        it('splice()-数组切片-01', function(done){
+            var arr = [1,2,3];
+            var tgt = [1,2,3].splice(0, arr.length);
+            assert.strictEqual(tgt[0], 1);
+            done();
+        });
 
     });
 
