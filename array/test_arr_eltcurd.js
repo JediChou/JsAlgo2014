@@ -37,6 +37,12 @@ describe('2.3 存储函数', function(){
             done();
         });
 
+        it('indexOf只返回第一个匹配的元素', function(done){
+            assert.strictEqual([1,1,2,1].indexOf(1), 0);
+            assert.strictEqual(['a','b','a'].indexOf('a'), 0);
+            done();
+        });
+
     });
 
 
