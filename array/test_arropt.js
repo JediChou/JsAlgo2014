@@ -33,5 +33,15 @@ describe('2.2.2　读写数组', function(){
         assert.strictEqual(sum, 3);
         done();
     }); 
-      
+
+    it('数组元素迭代2', function(done){
+        var arr = [1, 2];
+        var sum = 0;
+        arr.forEach(function(val){
+            sum += val;
+        });
+        assert.strictEqual(sum, 3);
+        done();
+    });
+
 });

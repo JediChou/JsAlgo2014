@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/test.js array/test_arr.js array/test_arropt.js"
+    "test": "mocha test/test.js array/test_arr.js array/test_arropt.js array/test_arrsplit.js"
   },
   "keywords": [
     "algorithms"
