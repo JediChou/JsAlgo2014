@@ -32,6 +32,16 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('unshif()-示例', function(done){
+            var arr = [2,3];
+            arr.unshift(1);
+            assert.strictEqual(arr[0], 1);
+            assert.strictEqual(arr[1], 2);
+            assert.strictEqual(arr[2], 3);
+            assert.strictEqual(arr.length, 3);
+            done();
+        });
+
     });
 
 });
