@@ -30,6 +30,15 @@ describe('2.5　迭代器方法', function(){
             done();
         });
 
+        it('reduce()-示例1', function(done){
+            function action(total, elt) {
+                return total + elt;
+            }
+            var sum = [1,2,3].reduce(action);
+            assert.strictEqual(sum , 6);
+            done();
+        });
+
     });
 
 });
