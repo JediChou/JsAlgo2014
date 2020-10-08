@@ -47,6 +47,16 @@ describe('2.5　迭代器方法', function(){
             assert.strictEqual(msg , "hello world");
             done();
         });
+
+        it('reduceRight-示例', function(done){
+            function action(msg, word) {
+                return msg + " " + word;
+            }
+            var message = "hello world and you";
+            var words_reverse = message.split(' ').reverse();
+            assert.strictEqual(words_reverse.reduceRight(action), message);
+            done();
+        });
     });
 
 });
