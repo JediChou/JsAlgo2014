@@ -39,6 +39,14 @@ describe('2.5　迭代器方法', function(){
             done();
         });
 
+        it('reduce()-示例2', function(done){
+            function action(msg, word) {
+                return msg + " " + word;
+            }
+            var msg = ["hello", "world"].reduce(action);
+            assert.strictEqual(msg , "hello world");
+            done();
+        });
     });
 
 });
