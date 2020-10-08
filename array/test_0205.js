@@ -92,6 +92,28 @@ describe('2.5　迭代器方法', function(){
             done();
         });
 
+        it('filter()-示例-过滤奇偶数', function(done){
+            function isEven(num) { return num % 2 == 0; }
+            function isOdd(num) { return num % 2 == 1; }
+            var arr = [1,2,3,4,5,6,7,8,9,10];
+            var evenNums = arr.filter(isEven);
+            var oddNums = arr.filter(isOdd);
+            assert.deepStrictEqual(oddNums, [1,3,5,7,9]);
+            assert.deepStrictEqual(evenNums, [2,4,6,8,10]);
+            done();
+        });
+
+        it('filter()-示例-过滤大于60的数', function(done){
+            function big(num) { return num > 60; }
+            function small(num) { return num <= 60;}
+            var arr = [1,2,3,40,60,70,80,100];
+            var bigs = arr.filter(big);
+            var smalls = arr.filter(small);
+            assert.deepStrictEqual(bigs, [70,80,100]);
+            assert.deepStrictEqual(smalls, [1,2,3,40,60]);
+            done();
+        });
+
     });
 
 });
