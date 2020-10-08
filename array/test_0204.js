@@ -71,6 +71,21 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('shift()-删除数组的第一个元素-示例', function(done){
+            var arr = [9,1,2,3];
+            var lenB_Before_Operation = arr.length;
+            var fisrt_elt = arr[0];
+            var val = arr.shift();
+            assert.strictEqual(val, fisrt_elt);
+            // Jedi: 而且array.length是有变化的
+            // Jedi: 所以使用shift使得JS的Array更像一个ADT类型
+            assert.strictEqual(arr.length, lenB_Before_Operation-1);
+            assert.strictEqual(arr[0], 1);
+            assert.strictEqual(arr[1], 2);
+            assert.strictEqual(arr[2], 3);
+            done();
+        });
+
     });
 
 });
