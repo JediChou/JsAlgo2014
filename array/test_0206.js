@@ -69,4 +69,13 @@ describe('2.6　二维和多维数组', function(){
         });
 
     });
+
+    describe('2.6.3　参差不齐的数组', function(){
+
+        it('锯齿数组-示例', function(done){
+            var grades = [[89, 77],[76, 82, 81],[91, 94, 89, 99]];
+            done();
+        });
+
+    });
 });
