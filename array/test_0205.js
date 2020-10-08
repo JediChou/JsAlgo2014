@@ -1,4 +1,5 @@
 var assert = require('assert');
+const { type } = require('os');
 
 describe('2.5　迭代器方法', function(){
 
@@ -57,6 +58,30 @@ describe('2.5　迭代器方法', function(){
             assert.strictEqual(words_reverse.reduceRight(action), message);
             done();
         });
+    });
+
+    describe('2.5.2　生成新数组的迭代器方法', function(){
+
+        it('map()-示例', function(done){
+            function timeFiles(year) {
+                return year + 5;
+            }
+            var before = [42, 37, 7];
+            var current = [47, 42, 12];
+            var actual = before.map(timeFiles);
+            assert.deepStrictEqual(actual, current);
+            done();
+        });
+
+        it('map()-示例2', function(done){
+            function typeChecker(elt) {
+                return elt instanceof Object;
+            }
+            var arr = [1, {}, []]
+            assert.deepStrictEqual(arr.map(typeChecker), [false, true, true]);
+            done();
+        });
+
     });
 
 });
