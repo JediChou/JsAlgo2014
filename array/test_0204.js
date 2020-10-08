@@ -173,6 +173,14 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('splice-模拟shift', function(done){
+            var arr = [1,2,3];
+            arr.splice(0, 1);
+            assert.strictEqual(arr.length, 2);
+            assert.deepStrictEqual(arr, [2,3]);
+            done();
+        });
+
     });
 
 });
