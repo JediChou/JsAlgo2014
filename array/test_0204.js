@@ -140,6 +140,22 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('splice-示例5-删除数组元素', function(done){
+            var arr = [1,2,3,100,200,300,400,4,5];
+            arr.splice(3,4);
+            assert.strictEqual(arr.length, 5);
+            assert.deepStrictEqual(arr, [1,2,3,4,5]);
+            done();
+        });
+
+        it('split-模拟push()', function(done){
+            var arr = [1,2,3];
+            var insert_val = 4;
+            arr.splice(arr.length, 0, insert_val);
+            assert.strictEqual(arr.length, 4);
+            done();
+        });
+
     });
 
 });
