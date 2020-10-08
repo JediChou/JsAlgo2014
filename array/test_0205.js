@@ -16,6 +16,12 @@ describe('2.5　迭代器方法', function(){
             done();
         });
 
+        it('every()-示例', function(done){
+            function isEven(num) {return num % 2 == 0;}
+            assert.ok([2,4,6,8,10].every(isEven));
+            done();
+        });
+
     });
 
 });
