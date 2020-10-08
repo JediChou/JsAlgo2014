@@ -192,6 +192,14 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('string数组排序', function(done){
+            var names = ["David","Mike","Cynthia","Clayton","Bryan","Raymond"];
+            var tgt = ["Bryan","Clayton","Cynthia","David","Mike","Raymond"];
+            names.sort();
+            assert.deepStrictEqual(names, tgt);
+            done();
+        });
+
     });    
 
 });
