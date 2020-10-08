@@ -200,6 +200,15 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('整数数组的缺省排序', function(done){
+            // Jedi: 缺省按照字典顺序对元素进行排序
+            var nums = [3,1,2,100,4,200];
+            var tgt = [1,100,2,200,3,4];
+            nums.sort();
+            assert.deepStrictEqual(nums, tgt);
+            done();
+        });
+
     });    
 
 });
