@@ -123,6 +123,14 @@ describe('2.4 可变函数', function(){
             assert.deepStrictEqual(arr, [1,2,3,4,5]);
             done();
         });
+
+        it('splice-示例3-多个元素插入', function(done){
+            var arr = [1,2,5,6];
+            arr.splice(2, 0, 3, 4);
+            assert.strictEqual(arr.length, 6);
+            assert.deepStrictEqual(arr, [1,2,3,4,5,6]);
+            done();
+        });
     });
 
 });
