@@ -101,18 +101,24 @@ describe('2.4 可变函数', function(){
     describe('2.4.3　从数组中间位置添加和删除元素', function(){
 
         it('splice-示例1', function(done){
-            var arr1 = [1,2,4,5];
-            var arr2 = [3];
-            arr1.splice(3, 0, arr2);
-            assert.strictEqual(arr1.length, 5);
-
+            var arr1 = [1,2,5];
+            var arr2 = [3, 4];
+            arr1.splice(2, 0, arr2);
+            console.log(arr1);
+            // assert.strictEqual(arr1.length, 5);
+            // assert.strictEqual(arr1[0], 1);
+            // assert.strictEqual(arr1[1], 2);
+            // assert.strictEqual(arr1[2], 3);
+            // assert.strictEqual(arr1[3], 4);
+            // assert.strictEqual(arr1[4], 5);
             done();
         });
 
         it('splice-示例2', function(done){
             var arr = [1,2,4,5];
-            arr.splice(3, 0, 3);
+            arr.splice(2, 0, 3);
             assert.strictEqual(arr.length, 5);
+            assert.deepStrictEqual(arr, [1,2,3,4,5]);
             done();
         });
     });
