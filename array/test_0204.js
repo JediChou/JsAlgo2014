@@ -148,7 +148,7 @@ describe('2.4 可变函数', function(){
             done();
         });
 
-        it('split-模拟push()', function(done){
+        it('splice-模拟push()', function(done){
             var arr = [1,2,3];
             var insert_val = 4;
             arr.splice(arr.length, 0, insert_val);
@@ -157,10 +157,11 @@ describe('2.4 可变函数', function(){
             done();
         });
 
-        it('split-模拟pop()', function(done){
+        it('splice-模拟pop()', function(done){
             var arr = [1,2,3];
             arr.splice(arr.length-1, 1);
             assert.strictEqual(arr.length, 2);
+            assert.deepStrictEqual(arr, [1,2]);
             done();
         });
 
