@@ -56,6 +56,21 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('shift()-手动版本', function(done){
+            var arr = [9,1,2,3];
+            for (var i=0; i<arr.length; i++) {
+                arr[i] = arr[i+1];
+            }
+            assert.strictEqual(arr.length, 4);
+            assert.strictEqual(arr[0], 1);
+            assert.strictEqual(arr[1], 2);
+            assert.strictEqual(arr[2], 3);
+            // Jedi: 最后一个元素变成了undefined
+            // Jedi: 而且array.length是没有变化的
+            assert.strictEqual(arr[3], undefined);
+            done();
+        });
+
     });
 
 });
