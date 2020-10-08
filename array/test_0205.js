@@ -22,6 +22,14 @@ describe('2.5　迭代器方法', function(){
             done();
         });
 
+        it('some()-示例', function(done){
+            function isOdd(num) { return num % 2 == 1;}
+            assert.ok([1,2,3,4,5].some(isOdd));
+            assert.ok([1,3,5].some(isOdd));
+            assert.ok(![2,4,8].some(isOdd));
+            done();
+        });
+
     });
 
 });
