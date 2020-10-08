@@ -44,4 +44,18 @@ describe('2.4 可变函数', function(){
 
     });
 
+    describe('2.4.2　从数组中删除元素', function(){
+
+        it('pop()-删除元素的末尾元素-示例', function(done){
+            var arr = [1,2,9];
+            var val = arr.pop();
+            assert.strictEqual(val, 9);
+            assert.strictEqual(arr.length, 2);
+            assert.strictEqual(arr[0], 1);
+            assert.strictEqual(arr[1], 2);
+            done();
+        });
+
+    });
+
 });
