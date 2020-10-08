@@ -209,6 +209,16 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('按指定比较器进行整型数组的排序', function(done){
+            var nums = [3,1,2,100,4,200];
+            var tgt = [1,2,3,4,100,200];
+            nums.sort(function(v1, v2){
+                return v1 - v2;
+            });
+            assert.deepStrictEqual(nums, tgt);
+            done();
+        });
+
     });    
 
 });
