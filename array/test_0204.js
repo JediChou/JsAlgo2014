@@ -153,6 +153,14 @@ describe('2.4 可变函数', function(){
             var insert_val = 4;
             arr.splice(arr.length, 0, insert_val);
             assert.strictEqual(arr.length, 4);
+            assert.deepStrictEqual(arr, [1,2,3,4]);
+            done();
+        });
+
+        it('split-模拟pop()', function(done){
+            var arr = [1,2,3];
+            arr.splice(arr.length-1, 1);
+            assert.strictEqual(arr.length, 2);
             done();
         });
 
