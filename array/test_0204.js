@@ -103,14 +103,16 @@ describe('2.4 可变函数', function(){
         it('splice-示例1', function(done){
             var arr1 = [1,2,5];
             var arr2 = [3, 4];
-            arr1.splice(2, 0, arr2);
-            console.log(arr1);
-            // assert.strictEqual(arr1.length, 5);
-            // assert.strictEqual(arr1[0], 1);
-            // assert.strictEqual(arr1[1], 2);
-            // assert.strictEqual(arr1[2], 3);
-            // assert.strictEqual(arr1[3], 4);
-            // assert.strictEqual(arr1[4], 5);
+
+            ////////////////////////////////
+            // Jedi: 修订书中的错误
+            arr2.reverse();
+            for (var i=0; i<arr2.length; i++)
+                arr1.splice(2, 0, arr2[i]);
+            ////////////////////////////////
+
+            assert.strictEqual(arr1.length, 5);
+            assert.deepStrictEqual(arr1, [1,2,3,4,5]);
             done();
         });
 
