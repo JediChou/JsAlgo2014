@@ -48,5 +48,25 @@ describe('2.6　二维和多维数组', function(){
             done();
         });
 
+        it('内外循环的示例-冗余的写法', function(done){
+            // Jedi: 逻辑更清晰
+            var grades = [
+                [77, 77, 77],
+                [88, 88, 88],
+                [99, 99, 99]
+            ];
+            var total = 0;
+            for (var row = 0; row < grades.length; row++) {
+                var cols = grades[row];
+                for (var col = 0; col < cols.length; col++) {
+                    total += cols[col];
+                }
+            }
+            var average = total / grades.length;
+            assert.strictEqual(total, 792);
+            assert.strictEqual(average, 264);
+            done();
+        });
+
     });
 });
