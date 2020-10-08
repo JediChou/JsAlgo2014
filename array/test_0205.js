@@ -1,5 +1,4 @@
 var assert = require('assert');
-const { type } = require('os');
 
 describe('2.5　迭代器方法', function(){
 
@@ -77,8 +76,19 @@ describe('2.5　迭代器方法', function(){
             function typeChecker(elt) {
                 return elt instanceof Object;
             }
-            var arr = [1, {}, []]
+            var arr = [1, {}, []];
             assert.deepStrictEqual(arr.map(typeChecker), [false, true, true]);
+            done();
+        });
+
+        it('map()-配合join的实例-获取单词首字母', function(done){
+            function getFirstCharacter(elt) {
+                return (typeof elt == 'string') ? elt[0].toUpperCase() : '';
+            }
+            var characters = ['hello', 'world'].map(getFirstCharacter);
+            var message = characters.join("");
+            assert.deepStrictEqual(characters, ['H', 'W']);
+            assert.deepStrictEqual(message, 'HW');
             done();
         });
 
