@@ -105,9 +105,16 @@ describe('2.4 可变函数', function(){
             var arr2 = [3];
             arr1.splice(3, 0, arr2);
             assert.strictEqual(arr1.length, 5);
+
             done();
         });
 
+        it('splice-示例2', function(done){
+            var arr = [1,2,4,5];
+            arr.splice(3, 0, 3);
+            assert.strictEqual(arr.length, 5);
+            done();
+        });
     });
 
 });
