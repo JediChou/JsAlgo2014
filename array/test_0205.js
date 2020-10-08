@@ -113,7 +113,6 @@ describe('2.5　迭代器方法', function(){
             assert.deepStrictEqual(smalls, [1,2,3,40,60]);
             done();
         });
-        
 
     });
 
