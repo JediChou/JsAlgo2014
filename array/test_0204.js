@@ -183,4 +183,15 @@ describe('2.4 可变函数', function(){
 
     });
 
+    describe('2.4.4　为数组排序', function(){
+
+        it('reverse示例', function(done){
+            assert.deepStrictEqual([1,2].reverse(), [2,1]);
+            assert.deepStrictEqual(['a','b'].reverse(), ['b','a']);
+            assert.deepStrictEqual(['a',{}].reverse(), [{},'a']);
+            done();
+        });
+
+    });    
+
 });
