@@ -165,6 +165,14 @@ describe('2.4 可变函数', function(){
             done();
         });
 
+        it('splice-模拟unshift', function(done){
+            var arr = [2,3], val = 1;
+            arr.splice(0,0,val);
+            assert.strictEqual(arr.length, 3);
+            assert.deepStrictEqual(arr, [1,2,3]);
+            done();
+        });
+
     });
 
 });
