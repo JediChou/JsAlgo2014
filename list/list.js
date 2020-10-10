@@ -31,10 +31,21 @@ exports.List = function() {
         return -1;
     };
     
+    // remove method
+    this.remove = function(element) {
+        var foundAt = this.find(element);
+        if (foundAt > -1) {
+            this.dataStore.splice(foundAt, 1);
+            --this.listSize;
+            return true;
+        }
+        return false;
+    };
+
+
     // this.clear = clear;
     // this.toString = toString;
     // this.insert = insert;
-    // this.remove = remove;
     // this.front = front;
     // this.end = end;
     // this.prev = prev;
