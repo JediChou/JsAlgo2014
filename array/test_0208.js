@@ -10,7 +10,7 @@ describe('2.8 对象中的数组', function(){
 
     it('对象中的数组-示例', function(done){
         var gradue = new PersonGradue('jedi', 42);
-        var check99 = function(num) { return num == 99};
+        var check99 = function(num) { return num == 99;};
         gradue.gradues.push(99);
         gradue.gradues.push(99);
         gradue.gradues.push(99);
