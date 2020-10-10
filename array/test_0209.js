@@ -55,24 +55,38 @@ describe('2.9 练习', function(){
         // 来存储每月的有用数据。增加一些方法用以显示月平均数、具体某一周平均数
         // 和所有周的平均数。
 
+        // solution
         function weekTemps() {
             this.dataStore = [];
+            
+            this.add = function (month, temp) {
+                if (!(this.dataStore[month - 1] instanceof Array))
+                    this.dataStore[month - 1] = [];
+                this.dataStore[month - 1].push(temp);
+            };
+
+            this.avgmonth = function (month) {
+                var total = 0;
+                if (month < 1) return total;
+                if (!(this.dataStore[month-1] instanceof Array)) return total;
+                for (var idx = 0; idx < this.dataStore[month-1].length; idx++)
+                    total += this.dataStore[month-1][idx];
+                return total / this.dataStore[month-1].length;
+            };
+
+            this.total = function() {
+                var total = 0;
+                for (var idx = 0; idx <this.dataStore.length; idx++) {
+                    var monthds = this.dataStore[idx];
+                    if (monthds instanceof Array) {
+                        for (var m_idx = 0; m_idx < monthds.length; m_idx++) {
+                            total += monthds[m_idx];
+                        }
+                    }
+                }
+                return total;
+            };
         }
-
-        weekTemps.prototype.add = function (month, temp) {
-            if (!(this.dataStore[month - 1] instanceof Array))
-                this.dataStore[month - 1] = [];
-            this.dataStore[month - 1].push(temp);
-        };
-
-        weekTemps.prototype.avgmonth = function (month) {
-            var total = 0;
-            if (month < 1) return total;
-            if (!(this.dataStore[month-1] instanceof Array)) return total;
-            for (var idx = 0; idx < this.dataStore[month-1].length; idx++)
-                total += this.dataStore[month-1][idx];
-            return total / this.dataStore[month-1].length;
-        };
         
         it('2.9.2-weeklyTemp的测试-初始化', function(done){
             var weeks = new weekTemps();
@@ -102,10 +116,60 @@ describe('2.9 练习', function(){
             done();
         });
 
-        it('2.9.2-weeklyTemp的测试-avgmonth-月份记录为空', function(done){
+        it('2.9.2-weeklyTemp的测试-avgmonth-月份记录为空1', function(done){
             var weeks = new weekTemps();
             assert.strictEqual(weeks.avgmonth(3), 0);
             done();
+        });
+
+        it('2.9.2-weeklyTemp的测试-avgmonth-月份记录为空2', function(done){
+            var weeks = new weekTemps();
+            weeks.add(1, 20);
+            weeks.add(1, 30);
+            weeks.add(3, 40);
+            weeks.add(3, 50);
+            assert.strictEqual(weeks.dataStore.length, 3);
+            assert.strictEqual(weeks.avgmonth(2), 0);
+            done();
+        });
+
+        it('2.9.2-weeklyTemp的测试-avgmonth-月份记录为正常', function(done){
+            var weeks = new weekTemps();
+            weeks.add(1, 20);
+            weeks.add(1, 30);
+            weeks.add(3, 40);
+            weeks.add(3, 50);
+            assert.strictEqual(weeks.avgmonth(1), 25);
+            assert.strictEqual(weeks.avgmonth(3), 45);
+            done();
+        });
+
+        it('2.9.2-weeklyTemp的测试-total-无任何记录', function(done){ 
+            var weeks = new weekTemps();
+            assert.strictEqual(weeks.total(), 0);
+            done(); 
+        });
+
+        it('2.9.2-weeklyTemp的测试-total-全部月份有记录', function(done){ 
+            var weeks = new weekTemps();
+            weeks.add(1, 20);
+            weeks.add(1, 30);
+            weeks.add(2, 40);
+            weeks.add(2, 50);
+            weeks.add(3, 60);
+            weeks.add(3, 70);
+            assert.strictEqual(weeks.total(), 270);
+            done(); 
+        });
+
+        it('2.9.2-weeklyTemp的测试-total-部分月份有记录', function(done){ 
+            var weeks = new weekTemps();
+            weeks.add(1, 20);
+            weeks.add(1, 30);
+            weeks.add(3, 60);
+            weeks.add(3, 70);
+            assert.strictEqual(weeks.total(), 180);
+            done(); 
         });
 
     });
