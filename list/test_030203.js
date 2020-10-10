@@ -29,4 +29,27 @@ describe('3.2.3 find：在列表中查找某一元素', function(){
         assert.strictEqual(list.find('cici'), 2);
         done();
     });
+
+    it('查找对象列表中的特定元素', function(done){
+        var list = new collection.List();
+        var p1 = {name:'jedi', age:42};
+        var p2 = {name:'becky', age:37};
+        var p3 = {name:'cici', age:8};
+        list.append(p1);
+        list.append(p2);
+        list.append(p3);
+        assert.strictEqual(list.find(p1), 0);
+        assert.strictEqual(list.find(p2), 1);
+        assert.strictEqual(list.find(p3), 2);
+        done();
+    });
+
+    it('检测找到元素时的返回值', function(done){
+        var numList = new collection.List();
+        var strList = new collection.List();
+        var objList = new collection.List();
+        assert.strictEqual(numList.find(1), -1);
+        done();
+    });
+
 });
