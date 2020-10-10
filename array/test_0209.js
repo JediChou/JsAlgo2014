@@ -31,4 +31,22 @@ describe('2.9 练习', function(){
 
     });
 
+    describe('2.9-练习2', function(){
+
+        // 2. 将一组单词存储在一个数组中，并按正序和倒序分别显示这些单词。
+
+        it('2.9.2-solution', function(done){
+            var msg = "h1 h2 h3";
+            var msg_arr1 = msg.split(' ');
+            assert.strictEqual(msg_arr1.length, 3);
+            assert.strictEqual(msg_arr1[0], "h1");
+            assert.strictEqual(msg_arr1[1], "h2");
+            assert.strictEqual(msg_arr1[2], "h3");
+            assert.strictEqual(msg_arr1.join(','), "h1,h2,h3");
+            assert.strictEqual(msg_arr1.reverse().join(','), "h3,h2,h1");
+            done();
+        });
+
+    });
+
 });
