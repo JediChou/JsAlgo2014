@@ -19,4 +19,14 @@ describe('3.2.3 find：在列表中查找某一元素', function(){
         done();
     });
 
+    it('查找字符串数组中的特定元素', function(done){
+        var list = new collection.List();
+        list.append('jedi');
+        list.append('becky');
+        list.append('cici');
+        assert.strictEqual(list.find('jedi'), 0);
+        assert.strictEqual(list.find('becky'), 1);
+        assert.strictEqual(list.find('cici'), 2);
+        done();
+    });
 });
