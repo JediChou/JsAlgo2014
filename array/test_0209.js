@@ -174,4 +174,55 @@ describe('2.9 练习', function(){
 
     });
 
+    describe('2.9练习-4', function(){
+
+        // 4. 创建这样一个对象，它将字母存储在一个数组中，并且用一个方法可以将字母连在一
+        // 起，显示成一个单词。
+
+        // solution
+        function CodingTable() {
+            this.codes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            this.decode = function(ctLst) {
+                if (!(ctLst instanceof Array))
+                    return undefined;
+                var r = [];
+                for (var i = 0; i < ctLst.length; i++)
+                    r.push(this.codes[ctLst[i]]);
+                return r.join('');
+            };
+            this.encode = function(str) {
+                if(typeof(str) != "string")
+                    return undefined;
+                var encrypt_arr = [];
+                for (var i = 0; i < str.length; i++)
+                    encrypt_arr.push(this.codes.indexOf(str[i]));
+                return encrypt_arr;
+            };
+        }
+
+        it('2.9.4-decode测试', function(done){
+            var ct = new CodingTable();
+            var encrypt_arr = [1,4,4];
+            assert.strictEqual(ct.decode(encrypt_arr), "bee");
+            done();
+        });
+
+        it('2.9.4-encode测试', function(done){
+            var ct = new CodingTable();
+            assert.deepStrictEqual(ct.encode("abc"), [0,1,2]);
+            assert.deepStrictEqual(ct.encode("bee"), [1,4,4]);
+            done();
+        });
+
+        it('2.9.4-decode和encode的测试', function(done){
+            var ct = new CodingTable();
+            var msg = "jedichou";
+            var encodes_arr = ct.encode(msg);
+            var decode_msg = ct.decode(encodes_arr);
+            assert.strictEqual(msg, decode_msg);
+            done();
+        });
+
+    });
+
 });
