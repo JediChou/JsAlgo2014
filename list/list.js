@@ -1,27 +1,37 @@
 exports.List = function() {
+    
+    ////////////////////////////////////////////////
     // List elements storage
     this.dataStore = [];
     
+    ////////////////////////////////////////////////
     // Properties
     this.listSize = 0;
     this.pos = 0;
     // this.length = length;
     
+    ////////////////////////////////////////////////
     // Methods
     
     // append method
     this.append = function(element) {
- 
-        // 平易近人的写法
+        // 平易近人的写法(有点笨笨的样子)
         // this.dataStore.push(element);
         // this.listSize++;
 
         // 短码写法
         this.dataStore[this.listSize++] = element;
     };
+
+    // find method
+    this.find = function(element) {
+        for (var i=0; i<this.dataStore.length; i++)
+            if (this.dataStore[i] == element)
+                return i;
+        return -1;
+    };
     
     // this.clear = clear;
-    // this.find = find;
     // this.toString = toString;
     // this.insert = insert;
     // this.remove = remove;
