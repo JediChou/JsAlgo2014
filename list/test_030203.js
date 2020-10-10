@@ -44,11 +44,11 @@ describe('3.2.3 find：在列表中查找某一元素', function(){
         done();
     });
 
-    it('检测找到元素时的返回值', function(done){
-        var numList = new collection.List();
-        var strList = new collection.List();
-        var objList = new collection.List();
-        assert.strictEqual(numList.find(1), -1);
+    it('检测没有找到元素时的返回值', function(done){
+        var list = new collection.List();
+        assert.strictEqual(list.find(1), -1);
+        assert.strictEqual(list.find("jedi"), -1);
+        assert.strictEqual(list.find({}), -1);
         done();
     });
 
