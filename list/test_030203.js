@@ -52,4 +52,16 @@ describe('3.2.3 find：在列表中查找某一元素', function(){
         done();
     });
 
+    it('检测混合型列表中的元素', function(done){
+        var list = new collection.List();
+        var obj = {}
+        list.append(1);
+        list.append("jedi");
+        list.append(obj);
+        assert.strictEqual(list.find(1), 0);
+        assert.strictEqual(list.find("jedi"), 1);
+        assert.strictEqual(list.find(obj), 2);
+        done();
+    });
+
 });
