@@ -72,4 +72,17 @@ describe('3.2.2 remove：从列表中删除元素', function(){
         done();
     });
 
+    it('删除不存在的项', function(done){
+        var list = new collection.List();
+        assert.ok(!list.remove(1));
+        assert.ok(!list.remove(1.1));
+        assert.ok(!list.remove("message"));
+        assert.ok(!list.remove(null));
+        assert.ok(!list.remove(undefined));
+        assert.ok(!list.remove({}));
+        assert.ok(!list.remove(true));
+        assert.ok(!list.remove(false));
+        assert.ok(!list.remove([]));
+        done();
+    });
 });
