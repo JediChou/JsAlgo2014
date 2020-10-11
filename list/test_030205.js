@@ -58,4 +58,33 @@ describe('3.2.5 toString：显示列表中的元素', function(){
         assert.strictEqual(list.toString().join(''), "[object Object]");
         done();
     });
+
+    it('object与undefined列表的toString', function(done){
+        var list = new collection.List();
+        list.append({});
+        list.append(undefined);
+        assert.strictEqual(list.length(), 2);
+        assert.strictEqual(list.toString().join(''), "[object Object]");
+        done();
+    });
+
+    it('object与整数的列表的toString', function(done){
+        var list = new collection.List();
+        list.append({});
+        list.append(1); // [{}, 1]
+        assert.strictEqual(list.length(), 2);
+        assert.strictEqual(list.toString().join(''), "[object Object]1");
+        done();
+    });
+
+    it('嵌套array的列表toString', function(done){
+        var list = new collection.List();
+        list.append([]);
+        list.append([[]]);
+        list.append([[]],[[[]]]);
+        assert.strictEqual(list.length(), 3);
+        assert.strictEqual(list.toString().join(''), "");
+        done();
+    });
+
 });
