@@ -65,6 +65,10 @@ describe('3.2.2 remove：从列表中删除元素', function(){
         list.append(elt2);
         list.append(elt3);
         assert.ok(list.remove(elt1));
+        assert.ok(list.remove(elt3));
+        assert.strictEqual(list.listSize, 1);
+        assert.strictEqual(list.dataStore.length, 1);
+        assert.strictEqual(list.dataStore[0], elt2);
         done();
     });
 
