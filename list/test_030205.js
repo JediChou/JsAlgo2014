@@ -40,4 +40,13 @@ describe('3.2.5 toString：显示列表中的元素', function(){
         assert.strictEqual(list.toString().join(''), '');
         done();
     });
+
+    it('object列表的toString', function(done){
+        var list = new collection.List();
+        list.append({});
+        list.append({});
+        assert.strictEqual(list.length(), 2);
+        assert.strictEqual(list.toString().join(''), "[object Object][object Object]");
+        done();
+    });
 });
