@@ -52,8 +52,14 @@ exports.List = function() {
         return false;
     };
 
+    /**
+     * 返回List中的元素数量
+     */
+    this.length = function() {
+        return this.listSize;
+    }
+
     // this.pos = 0;
-    // this.length = length;
     // this.clear = clear;
     // this.toString = toString;
     // this.insert = insert;
