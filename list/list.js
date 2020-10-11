@@ -59,9 +59,16 @@ exports.List = function() {
         return this.listSize;
     }
 
+    /**
+     * 返回List中的字符串输出
+     */
+    this.toString = function() {
+        return this.dataStore;
+    };
+
+
     // this.pos = 0;
     // this.clear = clear;
-    // this.toString = toString;
     // this.insert = insert;
     // this.front = front;
     // this.end = end;
