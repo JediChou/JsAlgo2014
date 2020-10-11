@@ -40,4 +40,32 @@ describe('3.2.2 remove：从列表中删除元素', function(){
         done();
     });
 
+    it('删除对象列表中某项', function(done){
+        var list = new collection.List();
+        var p1 = {name:"jedi", age:42};
+        var p2 = {name:"becky", age:37};
+        var p3 = {name:"cici", age:8};
+        list.append(p1);
+        list.append(p2);
+        list.append(p3);
+        var action = list.remove(p3);
+        assert.ok(action);
+        assert.strictEqual(list.listSize, 2);
+        assert.strictEqual(list.dataStore[0], p1);
+        assert.strictEqual(list.dataStore[1], p2);
+        done();
+    });
+
+    it('删除对象列表中某项(混合型)', function(done){
+        var list = new collection.List();
+        var elt1 = 1;
+        var elt2 = "message";
+        var elt3 = {name:"jedi", age:42};
+        list.append(elt1);
+        list.append(elt2);
+        list.append(elt3);
+        assert.ok(list.remove(elt1));
+        done();
+    });
+
 });
