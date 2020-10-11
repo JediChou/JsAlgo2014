@@ -30,4 +30,15 @@ describe('3.2.4 length：列表中有多少个元素', function(){
         done();
     });
 
+    it('删除部分元素后检验列表长度', function(done){
+        var n = Math.floor(Math.random() * 100);
+        var list = new collection.List();
+        for (var i=0; i<n; i++)
+            list.append(i+1);
+        list.remove(1);
+        list.remove(2);
+        assert.strictEqual(list.length(), n-2);
+        done();
+    });
+
 });
