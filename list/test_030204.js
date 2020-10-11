@@ -13,4 +13,12 @@ describe('3.2.4 length：列表中有多少个元素', function(){
         done();
     });
 
+    it('增加2个元素后检验列表长度', function(done){
+        var list = new collection.List();
+        list.append(1);
+        list.append(2);
+        assert.strictEqual(list.length(), 2);
+        done();
+    });
+
 });
