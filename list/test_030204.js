@@ -41,4 +41,15 @@ describe('3.2.4 length：列表中有多少个元素', function(){
         done();
     });
 
+    it('number列表的长度检验', function(done){
+        var list = new collection.List();
+        var n = 200;
+        for (var i=0; i<n; i++) {
+            tmp = Math.floor(math.random() * n);
+            list.append(tmp);
+        }
+        assert.strictEqual(list.length(), n);
+        done();
+    });
+
 });
