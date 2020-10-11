@@ -21,4 +21,13 @@ describe('3.2.4 length：列表中有多少个元素', function(){
         done();
     });
 
+    it('增加n的元素后检验列表长度', function(done){
+        var n = Math.floor(Math.random() * 1000);
+        var list = new collection.List();
+        for (var i=0; i<n; i++)
+            list.append(i);
+        assert.strictEqual(list.length(), n);
+        done();
+    });
+
 });
