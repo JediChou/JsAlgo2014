@@ -64,4 +64,47 @@ describe('3.2.4 length：列表中有多少个元素', function(){
         done();
     });
 
+    it('null列表的长度检验', function(done){
+        var list = new collection.List();
+        var n = 200;
+        for (var i=0; i<n; i++)
+            list.append(null);
+        assert.strictEqual(list.length(), n);
+        assert.strictEqual(list.dataStore.length, n);
+        done();
+    });
+
+    it('undefined列表的长度检验', function(done){
+        var list = new collection.List(), n = 200;
+        for (var i=0; i<n; i++)
+            list.append(undefined);
+        assert.strictEqual(list.length(), n);
+        assert.strictEqual(list.dataStore.length, n);
+        assert.ok(list.dataStore.every(function (elt) { 
+            return elt == undefined; 
+        }));
+        done();
+    });
+
+    it('string列表的长度检验', function(done){
+        var gen = function(n) {
+            var msg = "something will be happen";
+            var result = [];
+            for (var i=0; i<n; i++) {
+                var msg_idx = Math.floor(Math.random() * n);
+                result.push(msg[msg_idx]);
+            }
+            return result.join('');
+        }
+        var list = new collection.List(), n = 200;
+        for (var i=0; i<n; i++)
+            list.append(gen(78));
+        assert.strictEqual(list.length(), n);
+        assert.strictEqual(list.dataStore.length, n);
+        assert.ok(list.dataStore.every(function(elt){ 
+            return 'string' == (typeof elt)
+        }));
+        done();
+    });
+
 });
