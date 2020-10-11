@@ -45,11 +45,23 @@ describe('3.2.4 length：列表中有多少个元素', function(){
         var list = new collection.List();
         var n = 200;
         for (var i=0; i<n; i++) {
-            tmp = Math.floor(math.random() * n);
+            tmp = Math.floor(Math.random() * n);
             list.append(tmp);
         }
         assert.strictEqual(list.length(), n);
         done();
     });
+
+    // it('boolean列表的长度检验', function(done){
+    //     var list = new collection.List();
+    //     var n = 200;
+    //     for (var i=0; i<n; i++) {
+    //         var bFlag = i % 2 == 1 ? true : false;
+    //         list.append(bFlag);
+    //     }
+    //     assert.strictEqual(list.length(), n);
+    //     assert.strictEqual(list.dataStore.length, n);
+    //     done();
+    // });
 
 });
