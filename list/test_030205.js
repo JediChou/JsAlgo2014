@@ -49,4 +49,13 @@ describe('3.2.5 toString：显示列表中的元素', function(){
         assert.strictEqual(list.toString().join(''), "[object Object][object Object]");
         done();
     });
+
+    it('object与null列表的toString', function(done){
+        var list = new collection.List();
+        list.append({});
+        list.append(null);
+        assert.strictEqual(list.length(), 2);
+        assert.strictEqual(list.toString().join(''), "[object Object]");
+        done();
+    });
 });
