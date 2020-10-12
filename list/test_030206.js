@@ -198,6 +198,12 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
     //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
     // Structrual Root Primitive: null
     it('向List插入null', function(done){
+        var list = new collection.List();
+        list.append("20");
+        var action = list.insert(null, "20");
+        assert.ok(action);
+        assert.strictEqual(list.dataStore[0], "20");
+        assert.strictEqual(list.dataStore[1], null);
         done();
     });
 });
