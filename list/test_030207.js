@@ -143,6 +143,17 @@ describe('3.2.7 clear：清空列表中所有的元素', function(){
         assert.deepStrictEqual(list.dataStore, []);
         done();        
     });
+
+    it('清空date列表', function(done){
+        var list = new collection.List();
+        var date = new Date('2020-10-12');
+        appendRange(list, [date, date, date]);
+        list.clear();
+        assert.strictEqual(list.length(), 0);
+        assert.strictEqual(list.dataStore.length, 0);
+        assert.deepStrictEqual(list.dataStore, []);
+        done(); 
+    });
     // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
     // JavaScript basic types
     // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
