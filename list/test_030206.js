@@ -25,14 +25,6 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         done();
     });
 
-    ///////////////////////////////////////////////////////////////////////////////
-    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
-    // JavaScript basic types
-    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
-    // Structural Types:
-    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
-    // Structrual Root Primitive: null
-
     it('向List中插入boolean值', function(done){
         var list = new collection.List();
         list.append(true);
@@ -43,5 +35,24 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         assert.strictEqual(list.dataStore[1], false);
         done();
     });
+
+    it('向List中插入Number值', function(done){
+        var list = new collection.List();
+        list.append(2.2);
+        var action = list.insert(3.3, 2.2);
+        assert.strictEqual(list.length(), 2);
+        assert.ok(action);
+        assert.strictEqual(list.dataStore[0], 2.2);
+        assert.strictEqual(list.dataStore[1], 3.3);
+        done();
+    });
+
+    ///////////////////////////////////////////////////////////////////////////////
+    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+    // JavaScript basic types
+    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
+    // Structural Types:
+    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
+    // Structrual Root Primitive: null
 
 });
