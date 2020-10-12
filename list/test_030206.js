@@ -191,12 +191,6 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         done();
     });
 
-    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
-    // JavaScript basic types
-    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
-    // Structural Types:
-    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
-    // Structrual Root Primitive: null
     it('向List插入null', function(done){
         var list = new collection.List();
         list.append("20");
