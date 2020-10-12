@@ -95,7 +95,7 @@ exports.List = function() {
      * @param {*} element 待检索元素
      */
     this.contains = function(element) {
-        for (var i=0; i<this.listSize-1; i++) {
+        for (var i=0; i<this.dataStore.length; i++) {
             if (this.dataStore[i] == element ) {
                 return true;
             }
