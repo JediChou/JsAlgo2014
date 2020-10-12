@@ -101,12 +101,6 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         done();
     });
 
-    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
-    // JavaScript basic types
-    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
-    // Structural Types:
-    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
-    // Structrual Root Primitive: null
     it('向List插入Array', function(done){
         var list = new collection.List();
         var arr1 = [1], arr2 = [2], arr3 = [3];
@@ -118,6 +112,26 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         assert.deepStrictEqual(list.dataStore[0], arr1);
         assert.deepStrictEqual(list.dataStore[1], arr2);
         assert.deepStrictEqual(list.dataStore[2], arr3);
+        done();
+    });
+
+    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+    // JavaScript basic types
+    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
+    // Structural Types:
+    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
+    // Structrual Root Primitive: null
+    it('向List插入Map', function(done){
+        var list = new collection.List();
+        var map1 = new Map(), map2 = new Map(), map3 = new Map();
+        list.append(map1);
+        var action3 = list.insert(map3, map1);
+        var action2 = list.insert(map2, map1);
+        assert.strictEqual(list.length(), 3);
+        assert.ok(action3 && action2);
+        assert.deepStrictEqual(list.dataStore[0], map1);
+        assert.deepStrictEqual(list.dataStore[1], map2);
+        assert.deepStrictEqual(list.dataStore[2], map3);
         done();
     });
 });
