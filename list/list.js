@@ -57,7 +57,7 @@ exports.List = function() {
      */
     this.length = function() {
         return this.listSize;
-    }
+    };
 
     /**
      * 返回List中的字符串输出
@@ -66,10 +66,23 @@ exports.List = function() {
         return this.dataStore;
     };
 
+    /**
+     * 向列表中插入元素
+     * @param {*} element 新增元素
+     * @param {*} after 目标元素
+     */
+    this.insert = function(element, after) {
+        var insertPos = this.find(after);
+        if (insertPos > -1) {
+            this.dataStore.splice(insertPos + 1, 0, element);
+            ++this.listSize;
+            return true;
+        }
+        return false;
+    };
 
     // this.pos = 0;
     // this.clear = clear;
-    // this.insert = insert;
     // this.front = front;
     // this.end = end;
     // this.prev = prev;
