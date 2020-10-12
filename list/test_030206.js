@@ -115,12 +115,6 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         done();
     });
 
-    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
-    // JavaScript basic types
-    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
-    // Structural Types:
-    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
-    // Structrual Root Primitive: null
     it('向List插入Map', function(done){
         var list = new collection.List();
         var map1 = new Map(), map2 = new Map(), map3 = new Map();
@@ -132,6 +126,58 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         assert.deepStrictEqual(list.dataStore[0], map1);
         assert.deepStrictEqual(list.dataStore[1], map2);
         assert.deepStrictEqual(list.dataStore[2], map3);
+        done();
+    });
+
+    it('向List此插入set', function(done){
+        var list = new collection.List();
+        var set1 = new Set(), set2 = new Set(), set3 = new Set();
+        list.append(set1);
+        var action3 = list.insert(set3, set1);
+        var action2 = list.insert(set2, set1);
+        assert.strictEqual(list.length(), 3);
+        assert.ok(action3 && action2);
+        assert.deepStrictEqual(list.dataStore[0], set1);
+        assert.deepStrictEqual(list.dataStore[1], set2);
+        assert.deepStrictEqual(list.dataStore[2], set3);
+        done();
+    });
+
+    it('向List插入WeakMap', function(done){
+        var list = new collection.List(), action2 = false, action3 = false;
+        var wm1 = new WeakMap(),
+            wm2 = new WeakMap(),
+            wm3 = new WeakMap();
+        list.append(wm1);
+        action3 = list.insert(wm3, wm1);
+        action2 = list.insert(wm2, wm1);
+        assert.strictEqual(list.length(), 3);
+        assert.ok(action3 && action2);
+        assert.deepStrictEqual(list.dataStore[0], wm1);
+        assert.deepStrictEqual(list.dataStore[1], wm2);
+        assert.deepStrictEqual(list.dataStore[2], wm3);
+        done();
+    });
+
+    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+    // JavaScript basic types
+    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
+    // Structural Types:
+    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
+    // Structrual Root Primitive: null
+    it('向List插入WeakSet', function(done){
+        var list = new collection.List(), action2 = false, action3 = false;
+        var ws1 = new WeakSet(),
+            ws2 = new WeakSet(),
+            ws3 = new WeakSet();
+        list.append(ws1);
+        action3 = list.insert(ws3, ws1);
+        action2 = list.insert(ws2, ws1);
+        assert.strictEqual(list.length(), 3);
+        assert.ok(action3 && action2);
+        assert.deepStrictEqual(list.dataStore[0], ws1);
+        assert.deepStrictEqual(list.dataStore[1], ws2);
+        assert.deepStrictEqual(list.dataStore[2], ws3);
         done();
     });
 });
