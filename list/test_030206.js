@@ -159,12 +159,6 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         done();
     });
 
-    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
-    // JavaScript basic types
-    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
-    // Structural Types:
-    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
-    // Structrual Root Primitive: null
     it('向List插入WeakSet', function(done){
         var list = new collection.List(), action2 = false, action3 = false;
         var ws1 = new WeakSet(),
@@ -178,6 +172,32 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
         assert.deepStrictEqual(list.dataStore[0], ws1);
         assert.deepStrictEqual(list.dataStore[1], ws2);
         assert.deepStrictEqual(list.dataStore[2], ws3);
+        done();
+    });
+
+    it('向List插入Date', function(done){
+        var list = new collection.List();
+        var date1 = new Date('1978-6-3'),
+            date2 = new Date('1979-6-3'),
+            date3 = new Date('1980-6-3');
+        list.append(date1);
+        action3 = list.insert(date3, date1);
+        action2 = list.insert(date2, date1);
+        assert.strictEqual(list.length(), 3);
+        assert.ok(action3 && action2);
+        assert.deepStrictEqual(list.dataStore[0], date1);
+        assert.deepStrictEqual(list.dataStore[1], date2);
+        assert.deepStrictEqual(list.dataStore[2], date3);
+        done();
+    });
+
+    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
+    // JavaScript basic types
+    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
+    // Structural Types:
+    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
+    // Structrual Root Primitive: null
+    it('向List插入null', function(done){
         done();
     });
 });
