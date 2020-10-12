@@ -89,6 +89,19 @@ exports.List = function() {
         this.dataStore = [];
         this.listSize = 0;
     };
+    
+    /**
+     * 检查指定元素是否在列表中
+     * @param {*} element 待检索元素
+     */
+    this.contains = function(element) {
+        for (var i=0; i<this.listSize-1; i++) {
+            if (this.dataStore[i] == element ) {
+                return true;
+            }
+        }
+        return false;
+    };
 
     // this.pos = 0;
     // this.front = front;
@@ -98,5 +111,4 @@ exports.List = function() {
     // this.currPos = currPos;
     // this.moveTo = moveTo;
     // this.getElement = getElement;
-    // this.contains = contains;
 };
