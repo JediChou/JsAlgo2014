@@ -1,8 +1,8 @@
 // file: test_030204.js
 // description: 测试列表的长度值
 
-const assert = require('assert');
-const collection = require('./list.js');
+var assert = require('assert');
+var collection = require('./list.js');
 
 describe('3.2.4 length：列表中有多少个元素', function(){
 
@@ -95,14 +95,15 @@ describe('3.2.4 length：列表中有多少个元素', function(){
                 result.push(msg[msg_idx]);
             }
             return result.join('');
-        }
+        };
+
         var list = new collection.List(), n = 200;
         for (var i=0; i<n; i++)
             list.append(gen(78));
         assert.strictEqual(list.length(), n);
         assert.strictEqual(list.dataStore.length, n);
         assert.ok(list.dataStore.every(function(elt){ 
-            return 'string' == (typeof elt)
+            return 'string' == (typeof elt);
         }));
         done();
     });

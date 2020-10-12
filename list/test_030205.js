@@ -1,8 +1,8 @@
 // file: test_030205.js
 // description: 显示列表中的元素
 
-const assert = require('assert');
-const collection = require('./list.js');
+var assert = require('assert');
+var collection = require('./list.js');
 
 describe('3.2.5 toString：显示列表中的元素', function(){
     
