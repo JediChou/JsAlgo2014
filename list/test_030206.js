@@ -55,4 +55,27 @@ describe('3.2.6 insert：向列表中插入一个元素', function(){
     //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
     // Structrual Root Primitive: null
 
+    it('向List中插入String值', function(done){
+        var list = new collection.List();
+        list.append("hello");
+        var action = list.insert("world", "hello");
+        assert.strictEqual(list.length(), 2);
+        assert.ok(action);
+        assert.strictEqual(list.dataStore[0], "hello");
+        assert.strictEqual(list.dataStore[1], "world");
+        done();
+    });
+
+    it('向List中插入BigInt', function(done){
+        var list = new collection.List();
+        list.append('');
+        var theBiggestInt = BigInt(Number.MAX_SAFE_INTEGER) ;
+        var action = list.insert(theBiggestInt, "");
+        assert.strictEqual(list.length(), 2);
+        assert.ok(action);
+        assert.strictEqual(list.dataStore[0], "");
+        assert.strictEqual(list.dataStore[1], theBiggestInt);
+        done();
+    });
+
 });
