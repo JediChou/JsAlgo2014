@@ -80,9 +80,17 @@ exports.List = function() {
         }
         return false;
     };
+    
+    /**
+     * 清理所有元素
+     */
+    this.clear = function() {
+        delete this.dataStore;
+        this.dataStore = [];
+        this.listSize = 0;
+    };
 
     // this.pos = 0;
-    // this.clear = clear;
     // this.front = front;
     // this.end = end;
     // this.prev = prev;
