@@ -44,6 +44,17 @@ describe('3.2.8 contains：判断给定值是否在列表中', function(){
         assert.ok(list.contains(bigint_min));
         done();
     });
+
+    it('检测列表中包含Symbol变量', function(done){
+        var list = new collection.List();
+        var symbol1 = Symbol('windows');
+        var symbol2 = Symbol('linux');
+        list.append(symbol1);
+        list.append(symbol2);
+        assert.ok(list.contains(symbol1));
+        assert.ok(list.contains(symbol2));
+        done();
+    });
     // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
     // JavaScript basic types
     // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
