@@ -77,6 +77,24 @@ describe('3.2.8 contains：判断给定值是否在列表中', function(){
         list.append(arr1);
         list.append(arr2);
         assert.strictEqual(list.length(), 2);
+        assert.ok(list.contains(arr1));
+        assert.ok(list.contains(arr2));
+        assert.ok(!list.contains(arr3));
+        done();
+    });
+
+    it('检测列表中包含Map对象', function(done){
+        var list = new collection.List();
+        var map1 = new Map(), map2 = new Map(), map3 = new Map();
+        map1[1] = 1; map1[2] = 2; map1[3] = 3;
+        map2[1] = 2; map2[2] = 3; map2[3] = 4;
+        map3[1] = 3; map3[2] = 4; map3[3] = 5;
+        list.append(map1);
+        list.append(map2);
+        assert.strictEqual(list.length(), 2);
+        assert.ok(list.contains(map1));
+        assert.ok(list.contains(map2));
+        assert.ok(!list.contains(map3));
         done();
     });
     // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
