@@ -112,6 +112,21 @@ describe('3.2.8 contains：判断给定值是否在列表中', function(){
         assert.ok(!list.contains(set3));
         done();
     });
+
+    it('检测列表中包含WeakMap对象', function(done){
+        var list = new collection.List();
+        var wm1 = new WeakMap(), wm2 = new WeakMap(), wm3 = new WeakMap();
+        wm1[1] = 1; wm1[2] = 2; wm1[3] = 3;
+        wm2[1] = 2; wm2[2] = 3; wm2[3] = 4;
+        wm3[1] = 3; wm3[2] = 4; wm3[3] = 5;
+        list.append(wm1);
+        list.append(wm2);
+        assert.strictEqual(list.length(), 2);
+        assert.ok(list.contains(wm1));
+        assert.ok(list.contains(wm2));
+        assert.ok(!list.contains(wm3));
+        done();
+    });
     // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
     // JavaScript basic types
     // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
