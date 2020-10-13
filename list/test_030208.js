@@ -70,6 +70,15 @@ describe('3.2.8 contains：判断给定值是否在列表中', function(){
         assert.ok(!list.contains(p4));
         done();
     });
+
+    it('检测列表中包含Array对象', function(done){
+        var list = new collection.List();
+        var arr1 = [1,2,3], arr2 = [2,3,4], arr3 = [4,5,6];
+        list.append(arr1);
+        list.append(arr2);
+        assert.strictEqual(list.length(), 2);
+        done();
+    });
     // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
     // JavaScript basic types
     // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
