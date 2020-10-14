@@ -112,8 +112,16 @@ exports.List = function() {
         this.end = this.listSize - 1;
     };
 
+    /**
+     * 实现prev
+     */
+    this.prev = function() {
+        if (this.listSize > 0) {
+            ++this.pos;
+        }
+    };
+
     // this.pos = 0;
-    // this.prev = prev;
     // this.next = next;
     // this.currPos = currPos;
     // this.moveTo = moveTo;
