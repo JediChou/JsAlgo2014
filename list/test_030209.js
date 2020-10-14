@@ -327,6 +327,19 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(WeakMap列表)', function(done){
+            var list = new collection.List();
+            var wm1 = new WeakMap(), wm2 = new WeakMap(), wm3 = new WeakMap();
+            list.append(wm1);
+            list.append(wm2);
+            list.append(wm3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.deepStrictEqual(list.getElement(), wm2);
+            done();
+        });
+
     });
 
 });
