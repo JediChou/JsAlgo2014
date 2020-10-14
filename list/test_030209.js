@@ -214,6 +214,18 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(boolean列表)', function(done){
+            var list = new collection.List();
+            list.append(true);
+            list.append(false);
+            list.append(true);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.strictEqual(list.getElement(), false);
+            done();
+        });
+
     });
 
 });
