@@ -105,8 +105,14 @@ exports.List = function() {
         this.pos = 0;
     };
 
+    /**
+     * 实现end
+     */
+    this.end = function() {
+        this.end = this.listSize - 1;
+    };
+
     // this.pos = 0;
-    // this.end = end;
     // this.prev = prev;
     // this.next = next;
     // this.currPos = currPos;
