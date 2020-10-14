@@ -314,6 +314,19 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(set列表)', function(done){
+            var list = new collection.List();
+            var set1 = new Set(), set2 = new Set(), set3 = new Set();
+            list.append(set1);
+            list.append(set2);
+            list.append(set3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.deepStrictEqual(list.getElement(), set2);
+            done();
+        });
+
     });
 
 });
