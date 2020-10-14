@@ -142,6 +142,17 @@ describe('3.2.8 contains：判断给定值是否在列表中', function(){
         assert.ok(!list.contains(s3));
         done();
     });
+
+    it('检测列表中包含Date对象', function(done){
+        var list = new collection.List();
+        var date1 = new Date('1978-6-3');
+        var date2 = new Date('1979-6-3');
+        var date3 = new Date('1980-6-3');
+        list.append(date1);
+        list.append(date2);
+        assert.strictEqual(list.length(), 2);
+        done();
+    });
     // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
     // JavaScript basic types
     // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
