@@ -137,7 +137,14 @@ exports.List = function() {
         return this.pos;
     };
 
+    /**
+     * 移动List的pos至指定元素
+     * @param {*} position 目标元素的下标
+     */
+    this.moveTo = function(position) {
+        this.pos = position;
+    };
+
     // this.pos = 0;
-    // this.moveTo = moveTo;
     // this.getElement = getElement;
 };
