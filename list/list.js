@@ -129,9 +129,15 @@ exports.List = function() {
             ++this.pos;
         } 
     };
+    
+    /**
+     * 实现currPos
+     */
+    this.currPos = function() {
+        return this.pos;
+    };
 
     // this.pos = 0;
-    // this.currPos = currPos;
     // this.moveTo = moveTo;
     // this.getElement = getElement;
 };
