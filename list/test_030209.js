@@ -134,6 +134,16 @@ describe('3.2.9 遍历列表', function(){
             assert.deepStrictEqual(list.getElement(), map1);
             done();
         });
+
+        it('front测试(set列表)', function(done){
+            var list = new collection.List();
+            var set1 = new Set(), set2 = new Set(), set3 = new Set();
+            list.append(set1); list.append(set2); list.append(set3);
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.strictEqual(list.getElement(), set1);
+            done();
+        });
         // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
         // JavaScript basic types
         // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
