@@ -301,6 +301,19 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(map列表)', function(done){
+            var list = new collection.List();
+            var map1 = new Map(), map2 = new Map(), map3 = new Map();
+            list.append(map1);
+            list.append(map2);
+            list.append(map3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.deepStrictEqual(list.getElement(), map2);
+            done();
+        });
+
     });
 
 });
