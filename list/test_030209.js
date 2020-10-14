@@ -226,6 +226,18 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(number列表)', function(done){
+            var list = new collection.List();
+            list.append(1.1);
+            list.append(2.2);
+            list.append(3.3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.strictEqual(list.getElement(), 2.2);
+            done();
+        });
+
     });
 
 });
