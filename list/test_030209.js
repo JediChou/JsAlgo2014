@@ -82,6 +82,21 @@ describe('3.2.9 遍历列表', function(){
             assert.strictEqual(list.getElement(), bigint1);
             done();
         });
+
+        it('front测试(Symbol列表)', function(done){
+            var list = new collection.List();
+            var symbol1 = Symbol('redhat');
+            var symbol2 = Symbol('windows');
+            var symbol3 = Symbol('ubuntu');
+            list.append(symbol1);
+            list.append(symbol2);
+            list.append(symbol3);
+            list.front();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.strictEqual(list.getElement(), symbol1);
+            done();
+        });
         // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
         // JavaScript basic types
         // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
