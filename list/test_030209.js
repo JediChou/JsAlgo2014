@@ -67,6 +67,21 @@ describe('3.2.9 遍历列表', function(){
             assert.strictEqual(list.getElement(), 'jedi');
             done();
         });
+
+        it('front测试(BigInt列表)', function(done){
+            var list = new collection.List();
+            var bigint1 = BigInt(Number.MAX_SAFE_INTEGER);
+            var bigint2 = BigInt(Number.MAX_SAFE_INTEGER);
+            var bigint3 = BigInt(Number.MAX_SAFE_INTEGER);
+            list.append(bigint1);
+            list.append(bigint2);
+            list.append(bigint3);
+            list.front();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.strictEqual(list.getElement(), bigint1);
+            done();
+        });
         // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
         // JavaScript basic types
         // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
