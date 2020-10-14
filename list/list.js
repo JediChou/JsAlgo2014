@@ -19,11 +19,6 @@ exports.List = function() {
      * @param {*} element 待增加的列表元素
      */
     this.append = function(element) {
-        // 平易近人的写法(有点笨笨的样子)
-        // this.dataStore.push(element);
-        // this.listSize++;
-
-        // 短码写法
         this.dataStore[this.listSize++] = element;
     };
 
@@ -103,8 +98,14 @@ exports.List = function() {
         return false;
     };
 
+    /**
+     * 实现front
+     */
+    this.front = function() {
+        this.pos = 0;
+    };
+
     // this.pos = 0;
-    // this.front = front;
     // this.end = end;
     // this.prev = prev;
     // this.next = next;
