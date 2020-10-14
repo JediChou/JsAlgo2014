@@ -340,6 +340,19 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(WeakSet列表)', function(done){
+            var list = new collection.List();
+            var ws1 = new WeakSet(), ws2 = new WeakSet(), ws3 = new WeakSet();
+            list.append(ws1);
+            list.append(ws2);
+            list.append(ws3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.deepStrictEqual(list.getElement(), ws2);
+            done();
+        });
+
     });
 
 });
