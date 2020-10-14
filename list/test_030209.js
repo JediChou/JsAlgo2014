@@ -262,6 +262,24 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(Symbol列表)', function(done){
+            var list = new collection.List();
+            var sym1 = Symbol('ubuntu'), sym2 = Symbol('windows'), sym3=Symbol('redhat');
+            list.append(sym1);
+            list.append(sym2);
+            list.append(sym3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.strictEqual(list.getElement(), sym2);
+            done();
+        });
+
+        it('next测试(object列表)', function(done){
+            
+            done();
+        });
+
     });
 
 });
