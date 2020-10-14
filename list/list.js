@@ -151,5 +151,5 @@ exports.List = function() {
         return this.dataStore[this.pos];
     };
 
-    // this.pos = 0;
+    this.pos = 0;
 };
