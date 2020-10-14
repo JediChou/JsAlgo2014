@@ -353,6 +353,21 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(Date列表)', function(done){
+            var list = new collection.List();
+            var dt1 = new Date('2020-10-14');
+            var dt2 = new Date('2020-10-15');
+            var dt3 = new Date('2020-10-16');
+            list.append(dt1);
+            list.append(dt2);
+            list.append(dt3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.deepStrictEqual(list.getElement(), dt2);
+            done();
+        });
+
     });
 
 });
