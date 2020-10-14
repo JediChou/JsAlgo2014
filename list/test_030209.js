@@ -276,7 +276,16 @@ describe('3.2.9 遍历列表', function(){
         });
 
         it('next测试(object列表)', function(done){
-            
+            var list = new collection.List();
+            var o1 = {name:'jedi'}, o2={name:'becky'}, o3={name:'cici'};
+            list.append(o1);
+            list.append(o2);
+            list.append(o3);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.strictEqual(list.getElement(), o2);
+            assert.deepStrictEqual(list.getElement(), o2);
             done();
         });
 
