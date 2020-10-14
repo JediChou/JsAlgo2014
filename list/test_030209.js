@@ -238,6 +238,30 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(string列表)', function(done){
+            var list = new collection.List();
+            list.append('jedi');
+            list.append('becky');
+            list.append('cici');
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.strictEqual(list.getElement(), 'becky');
+            done();
+        });
+
+        it('next测试(BigInt列表)', function(done){
+            var list = new collection.List();
+            list.append(BigInt.MAX_SAFE_INTEGER);
+            list.append(BigInt.MAX_SAFE_INTEGER);
+            list.append(BigInt.MAX_SAFE_INTEGER);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.strictEqual(list.getElement(), BigInt.MAX_SAFE_INTEGER);
+            done();
+        });
+
     });
 
 });
