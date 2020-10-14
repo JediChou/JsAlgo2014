@@ -117,12 +117,20 @@ exports.List = function() {
      */
     this.prev = function() {
         if (this.listSize > 0) {
-            ++this.pos;
+            --this.pos;
         }
     };
 
+    /**
+     * 实现next
+     */
+    this.next = function() {
+        if (this.listSize > 0) {
+            ++this.pos;
+        } 
+    };
+
     // this.pos = 0;
-    // this.next = next;
     // this.currPos = currPos;
     // this.moveTo = moveTo;
     // this.getElement = getElement;
