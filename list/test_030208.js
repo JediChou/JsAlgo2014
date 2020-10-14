@@ -151,6 +151,21 @@ describe('3.2.8 contains：判断给定值是否在列表中', function(){
         list.append(date1);
         list.append(date2);
         assert.strictEqual(list.length(), 2);
+        assert.ok(list.contains(date1));
+        assert.ok(list.contains(date2));
+        assert.ok(!list.contains(date3));
+        done();
+    });
+
+    it('检测列表中包含null', function(done){
+        var list = new collection.List();
+        var o1 = {name:'jedi'}, o2 = null, o3 = {name:'cici'};
+        list.append(o1);
+        list.append(o2);
+        assert.strictEqual(list.length(), 2);
+        assert.ok(list.contains(o1));
+        assert.ok(list.contains(o2));
+        assert.ok(!list.contains(o3));
         done();
     });
     // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
