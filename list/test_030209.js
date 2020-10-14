@@ -289,6 +289,18 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(array列表)', function(done){
+            var list = new collection.List();
+            list.append([]);
+            list.append([[]]);
+            list.append([[[]]]);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.deepStrictEqual(list.getElement(), [[]]);
+            done();
+        });
+
     });
 
 });
