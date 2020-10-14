@@ -12,7 +12,6 @@ exports.List = function() {
      * List当前的元素数量
      */
     this.listSize = 0;
-
     
     /**
      * List的append方法，用于向列表中增加元素
@@ -145,6 +144,12 @@ exports.List = function() {
         this.pos = position;
     };
 
+    /**
+     * 实现getElement
+     */
+    this.getElement = function() {
+        return this.dataStore[this.pos];
+    };
+
     // this.pos = 0;
-    // this.getElement = getElement;
 };
