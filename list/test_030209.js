@@ -164,12 +164,28 @@ describe('3.2.9 遍历列表', function(){
             assert.strictEqual(list.getElement(), ws1);
             done();
         });
-        // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
-        // JavaScript basic types
-        // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
-        // Structural Types:
-        //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
-        // Structrual Root Primitive: null
+
+        it('front测试(Date列表)', function(done){
+            var list = new collection.List();
+            var date1 = new Date('1978-6-3');
+            var date2 = new Date('1979-6-3');
+            var date3 = new Date('1980-6-3');
+            list.append(date1); list.append(date2); list.append(date3);
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.strictEqual(list.getElement(), date1);
+            done();
+        });
+
+        it('front测试(null列表)', function(done){
+            var list = new collection.List();
+            list.append(null); list.append(null); list.append(null);
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.strictEqual(list.getElement(), null);
+            done();
+        });
+
     });
 
 });
