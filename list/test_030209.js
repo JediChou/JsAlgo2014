@@ -154,6 +154,16 @@ describe('3.2.9 遍历列表', function(){
             assert.strictEqual(list.getElement(), wm1);
             done();
         });
+
+        it('front测试(WeakSet列表)', function(done){
+            var list = new collection.List();
+            var ws1 = new WeakSet(), ws2 = new WeakSet(), ws3 = new WeakSet();
+            list.append(ws1); list.append(ws2); list.append(ws3);
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.strictEqual(list.getElement(), ws1);
+            done();
+        });
         // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
         // JavaScript basic types
         // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
