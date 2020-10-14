@@ -202,6 +202,18 @@ describe('3.2.9 遍历列表', function(){
             done();
         });
 
+        it('next测试(undefined列表)', function(done){
+            var list = new collection.List();
+            list.append(undefined);
+            list.append(undefined);
+            list.append(undefined);
+            list.next();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 1);
+            assert.strictEqual(list.getElement(), undefined);
+            done();
+        });
+
     });
 
 });
