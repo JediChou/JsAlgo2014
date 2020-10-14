@@ -168,10 +168,5 @@ describe('3.2.8 contains：判断给定值是否在列表中', function(){
         assert.ok(!list.contains(o3));
         done();
     });
-    // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
-    // JavaScript basic types
-    // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
-    // Structural Types:
-    //   Object (Normal, Array, Map, Set, WeakMap, WeakSet, Date)
-    // Structrual Root Primitive: null
+
 });
