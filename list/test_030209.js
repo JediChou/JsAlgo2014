@@ -97,6 +97,33 @@ describe('3.2.9 遍历列表', function(){
             assert.strictEqual(list.getElement(), symbol1);
             done();
         });
+
+        it('front测试(object列表)', function(done){
+            var list = new collection.List();
+            var o1 = {name:'jedi'};
+            var o2 = {name:'becky'};
+            var o3 = {name:'cici'};
+            list.append(o1);
+            list.append(o2);
+            list.append(o3);
+            list.front();
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.deepStrictEqual(list.getElement(), o1);
+            done();
+        });
+
+        it('front测试(array列表)', function(done){
+            var list = new collection.List();
+            var arr1 = [], arr2 = [[]], arr3 = [[[]]];
+            list.append(arr1);
+            list.append(arr2);
+            list.append(arr3);
+            assert.strictEqual(list.length(), 3);
+            assert.strictEqual(list.pos, 0);
+            assert.deepStrictEqual(list.getElement(), arr1);
+            done();
+        });
         // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures
         // JavaScript basic types
         // Data Types: undefined, Boolean, Number, String, BigInt, Symbol
