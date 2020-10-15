@@ -4,6 +4,7 @@
 var assert = require('assert');
 var collection = require('./list.js');
 var film = require('./filmsapp.js');
+var fs = require('fs');
 
 describe('3.4.1 读取文本文件', function(){
 
@@ -161,6 +162,29 @@ describe('3.4.1 读取文本文件', function(){
             for (list.end(); list.currPos() >= 0; list.prev()) {
                 assert.strictEqual(list.getElement(), arr[list.currPos()]);
             }
+            done();
+        });
+
+    });
+
+    describe('读取文件测试', function(){
+
+        var movies_file = './list/films.txt';
+
+        function createArr(file) {
+            var contents = fs.readFileSync(movies_file, 'utf8'), arr = [];
+            if (contents) arr = contents.split("\n");
+            for (var i = 0; i < arr.length; ++i)
+                arr[i] = arr[i].trim();
+            return arr;
+        }
+
+        it('用node读取文本文件', function(done){
+            var movies = createArr(movies_file);
+            assert.notDeepStrictEqual(null, movies);
+            assert.notDeepStrictEqual(undefined, movies);
+            assert.strictEqual((typeof movies), 'object');
+            assert.ok(movies instanceof Array);
             done();
         });
 
