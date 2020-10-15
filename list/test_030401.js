@@ -46,6 +46,21 @@ describe('3.4.1 读取文本文件', function(){
             done();
         });
 
+        it('测试Model(Customer)-列表remove测试', function(done){
+            var list = new collection.List();
+            var c1 = new film.Customer('jedi', 'movie1');
+            var c2 = new film.Customer('becky', 'movie2');
+            var c3 = new film.Customer('cici', 'movie3');
+            list.append(c1);
+            list.append(c2);
+            list.append(c3);
+            list.remove(c2);
+            assert.strictEqual(list.length(), 2);
+            assert.strictEqual(list.find(c1), 0);
+            assert.strictEqual(list.find(c3), 1);
+            done();
+        });
+
     });
 
 });
