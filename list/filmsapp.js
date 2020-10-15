@@ -31,7 +31,7 @@ exports.filmsapp = function() {
      * @param {*} datas Movies的数组
      */
     this.initMovies = function(datas) {
-        for (var i=0; i<datas.length(); i++)
+        for (var i=0; i<datas.length; i++)
             this.movies.append(datas[i]);
     };
 
