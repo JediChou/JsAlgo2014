@@ -196,6 +196,10 @@ describe('3.4.1 读取文本文件', function(){
         });
 
         it('用node将movie信息读到filmsapp实例中', function(done){
+            var movies = createArr(movies_file);
+            var filmsapp = new film.filmsapp();
+            filmsapp.initMovies(movies);
+            assert.strictEqual(filmsapp.movies.length(), movies.length);
             done();
         });
 
