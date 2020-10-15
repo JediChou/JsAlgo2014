@@ -129,10 +129,38 @@ describe('3.4.1 读取文本文件', function(){
             assert.ok(list.contains(c1));
             assert.ok(list.contains(c2));
             assert.ok(list.contains(c3));
-
             list.remove(c1);
             assert.ok(!list.contains(c1));
+            done();
+        });
 
+        it('测试Model(Customer)-列表迭代(从左向右)', function(done){
+            var c1 = new film.Customer('jedi', 'movie1');
+            var c2 = new film.Customer('becky', 'movie2');
+            var c3 = new film.Customer('cici', 'movie3');
+            var list = new collection.List();
+            var arr = [c1,c2,c3];
+            list.append(c1);
+            list.append(c2);
+            list.append(c3);
+            for(list.front(); list.currPos() < list.length(); list.next()) {
+                assert.deepStrictEqual(list.getElement(), arr[list.currPos()]);
+            }
+            done();
+        });
+
+        it('测试Model(Customer)-列表迭代(从右向左)', function(done){
+            var c1 = new film.Customer('jedi', 'movie1');
+            var c2 = new film.Customer('becky', 'movie2');
+            var c3 = new film.Customer('cici', 'movie3');
+            var list = new collection.List();
+            var arr = [c1,c2,c3];
+            list.append(c1);
+            list.append(c2);
+            list.append(c3);
+            for (list.end(); list.currPos() >= 0; list.prev()) {
+                assert.strictEqual(list.getElement(), arr[list.currPos()]);
+            }
             done();
         });
 
