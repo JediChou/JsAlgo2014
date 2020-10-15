@@ -188,6 +188,17 @@ describe('3.4.1 读取文本文件', function(){
             done();
         });
 
+        it('用node读取文本文件-内容比较', function(done){
+            var movies = createArr(movies_file);
+            assert.strictEqual(movies[0], "The Shawshank Redemption");
+            assert.strictEqual(movies[1], "The Godfather");
+            done();
+        });
+
+        it('用node将movie信息读到filmsapp实例中', function(done){
+            done();
+        });
+
     });
 
 });
