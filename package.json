@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha array/test_*.js list/test_*.js"
+    "test": "mocha jsbasic/*.js array/test_*.js list/test_*.js"
   },
   "keywords": [
     "algorithms"
